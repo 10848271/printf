@@ -5,8 +5,9 @@
 #include "main.h"
 
 /**
- * spec_determinant - determines which spec_func is to be executed
+ * get_spec_func - determines which spec_func is to be executed
  * @spec_char: supposed spec_char to aid in spec_function determination
+ * @unnamed: variadic va_list argument
  *
  * Return: number of characters printed
  */

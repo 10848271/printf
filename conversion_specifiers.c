@@ -4,11 +4,23 @@
 
 /* conversion specifier functions implementation goes here */
 
+/**
+ * c_spec_func - function that perform c conversion specifier actions
+ * @value: character to print
+ *
+ * Return: number of characters printed
+ */
 int c_spec_func(char *value)
 {
 	return (write(1, value, 1));
 }
 
+/**
+ * s_spec_func - printing a string to stdout handling %s format directive
+ * @value: string to print
+ *
+ * Return: number of characters printed
+ */
 int s_spec_func(char *value)
 {
 	int idx;
