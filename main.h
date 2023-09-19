@@ -8,9 +8,12 @@ int _printf(const char *format, ...);
 
 
 /**
- * struct conversion_specifiers - maps printf conversion specifier their functions
- * @spec_char: character representing the conversion specifier
- * @spec_func: function to be executed for the given conversion specifier
+ * struct conversion_specifiers - maps printf conversion
+ * specifier their functions
+ * @spec_char: character representing
+ * the conversion specifier
+ * @spec_func: function to be executed
+ * for the given conversion specifier
  *
  */
 typedef struct conversion_specifiers
@@ -33,14 +36,17 @@ int get_spec_func(char, va_list);
 
 
 /**
- * struct length_modifiers - maps printf length modifiers characters to their handler functions
- * @mod_char: character representing the length modifier
- * @mod_func: function to be executed for the given length modifier
+ * struct length_modifiers - maps printf length modifiers
+ * characters to their handler functions
+ * @mod_char: character representing
+ * the length modifier
+ * @mod_func: function to be executed for
+ * the given length modifier
  *
  */
 typedef struct length_modifiers
 {
-        char mod_char;
+	char mod_char;
 	int (*mod_func)(char *);
 } len_mod;
 
@@ -63,8 +69,8 @@ int (*get_mod_func(char))(char *);
  */
 typedef struct flag
 {
-        char flag_char;
-        int (*flag_func)(char *);
+	char flag_char;
+	int (*flag_func)(char *);
 } flag_t;
 
 /* flag function prototypes go here */
@@ -84,8 +90,8 @@ int (*get_flag_func(char))(char *);
  */
 typedef struct field_width
 {
-        char width_char;
-        int (*width_func)(char *);
+	char width_char;
+	int (*width_func)(char *);
 } width_t;
 
 /* field width function prototypes go here */
@@ -105,8 +111,8 @@ int (*get_width_func(char))(char *);
  */
 typedef struct precision
 {
-        char prec_char;
-        int (*prec_func)(char *);
+	char prec_char;
+	int (*prec_func)(char *);
 } precision_t;
 
 /* precision function prototypes go here */
