@@ -25,6 +25,7 @@ typedef struct conversion_specifiers
 /* conversion specifiers function prototypes go here */
 int c_spec_func(char *);
 int s_spec_func(char *);
+int d_i_spec_func(char *);
 /* end of conversion specifiers function prototypes */
 
 

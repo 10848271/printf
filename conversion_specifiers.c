@@ -29,3 +29,19 @@ int s_spec_func(char *value)
 
 	return (write(1, value, idx));
 }
+
+/**
+* d_i_spec_func - function that handles conversion
+* @d: value to convert
+* @i: another value
+* return: handler
+*/
+int d_i_spec_func (char *)
+{
+int idx;
+
+        for (idx = 0; value[idx]; idx++)
+                continue;
+
+        return (write(1, value, idx));
+}
