@@ -37,7 +37,13 @@ int get_spec_func(char spec_char, va_list unnamed)
 		free(c_str);
 	}
 	else if (spec_char == 's')
+	{
+		c_str = va_arg(unnamed, char *);
+		if (c_str == NULL)
+			return (0);
+		/*90 67*/
 		count = con_spec_list[idx].spec_func(va_arg(unnamed, char *));
+	}
 
 	return (count);
 }
