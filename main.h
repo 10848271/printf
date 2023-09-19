@@ -1,6 +1,8 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include <stdarg.h>
+
 /* main printf function prototype */
 int _printf(const char *format, ...);
 
@@ -14,17 +16,18 @@ int _printf(const char *format, ...);
 typedef struct conversion_specifiers
 {
 	char spec_char;
-	int (*spec_func)(char value);
+	int (*spec_func)(char *);
 } con_spec;
 
 /* conversion specifiers function prototypes go here */
-
+int c_spec_func(char *);
+int s_spec_func(char *);
 /* end of conversion specifiers function prototypes */
 
 
 /* conversion specifiers helper functions prototypes go here */
 
-int (*get_spec_func(char spec_char))(char value);
+int get_spec_func(char, va_list);
 
 /* end of conversion specifiers helper functions prototype */
 
@@ -38,7 +41,7 @@ int (*get_spec_func(char spec_char))(char value);
 typedef struct length_modifiers
 {
         char mod_char;
-	int (*mod_func)(char value);
+	int (*mod_func)(char *);
 } len_mod;
 
 /* length modifiers function prototypes go here */
@@ -47,7 +50,7 @@ typedef struct length_modifiers
 
 
 /* length modifiers helper functions prototypes go here */
-int (*get_mod_func(char mod_char))(char);
+int (*get_mod_func(char))(char *);
 /* end of length modifiers helper functions prototype */
 
 
@@ -61,7 +64,7 @@ int (*get_mod_func(char mod_char))(char);
 typedef struct flag
 {
         char flag_char;
-        int (*flag_func)(char value);
+        int (*flag_func)(char *);
 } flag_t;
 
 /* flag function prototypes go here */
@@ -69,7 +72,7 @@ typedef struct flag
 /* end of flag function prototypes */
 
 /* flag helper functions prototypes goes here */
-int (*get_flag_func(char flag_char))(char value);
+int (*get_flag_func(char))(char *);
 /* end of flag helper prototypes */
 
 
@@ -82,7 +85,7 @@ int (*get_flag_func(char flag_char))(char value);
 typedef struct field_width
 {
         char width_char;
-        int (*width_func)(char value);
+        int (*width_func)(char *);
 } width_t;
 
 /* field width function prototypes go here */
@@ -90,7 +93,7 @@ typedef struct field_width
 /* end of field width function prototypes */
 
 /* field width helper functions prototypes goes here */
-int (*get_width_func(char width_char))(char value);
+int (*get_width_func(char))(char *);
 /* end of field width helper prototypes */
 
 
@@ -103,7 +106,7 @@ int (*get_width_func(char width_char))(char value);
 typedef struct precision
 {
         char prec_char;
-        int (*prec_func)(char value);
+        int (*prec_func)(char *);
 } precision_t;
 
 /* precision function prototypes go here */
@@ -111,7 +114,7 @@ typedef struct precision
 /* end of precision function prototypes */
 
 /* flag helper functions prototypes goes here */
-int (*get_prec_func(char prec_char))(char value);
+int (*get_prec_func(char))(char *);
 /* end of flag helper prototypes */
 
 
