@@ -18,6 +18,8 @@ int get_spec_func(char spec_char, va_list unnamed)
 	con_spec con_spec_list[] = {
 		{'c', c_spec_func},
 		{'s', s_spec_func},
+		{'d', d_spec_func},
+		{'i', d_spec_func},
 		{'b', b_spec_func},
 		{'\0', NULL},
 	};
@@ -41,6 +43,10 @@ int get_spec_func(char spec_char, va_list unnamed)
 		/*90 67*/
 		count = con_spec_list[idx].spec_func(va_arg(unnamed, char *));
 	}
+	else if (spec_char =='d' || spec_char == 'i')
+	{
+		c_str = itoa(va_arg(unnamed, int));
+		con_spec_list[idx].spec_func(c_str);
 	else if (spec_char == 'b')
 	{
 		c_str = itoa(va_arg(unnamed, int));

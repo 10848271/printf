@@ -32,6 +32,22 @@ int s_spec_func(char *value)
 }
 
 /**
+* d_i_spec_func - function that handles conversion
+* @d: value to convert
+* @i: another value
+* return: handler
+*/
+int d_i_spec_func (char *)
+{
+        int idx;
+
+        for (idx = 0; value[idx]; idx++)
+                continue;
+
+        return (write(1, value, idx));
+}
+
+ /**
  * b_spec_func - converts number to binary and prints to stdout, handling %b format directive
  * @value: string to convert
  *
