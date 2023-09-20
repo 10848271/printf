@@ -26,13 +26,17 @@ typedef struct conversion_specifiers
 int c_spec_func(char *);
 int s_spec_func(char *);
 int d_i_spec_func(char *);
+int b_spec_func(char *);
 /* end of conversion specifiers function prototypes */
 
 
 /* conversion specifiers helper functions prototypes go here */
-
 int get_spec_func(char, va_list);
-
+char *base_converter(int, int);
+char *itoa(int);
+int digit_count(int);
+int _pow(int, int);
+int max_b_size(int);
 /* end of conversion specifiers helper functions prototype */
 
 
