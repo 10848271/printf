@@ -42,13 +42,7 @@ int get_spec_func(char spec_char, va_list unnamed)
 	{
 		count = con_spec_list[idx].spec_func(va_arg(unnamed, char *));
 	}
-	else if (spec_char =='d' || spec_char == 'i')
-	{
-		c_str = itoa(va_arg(unnamed, int));
-		con_spec_list[idx].spec_func(c_str);
-		free(c_str);
-	}
-	else if (spec_char == 'b')
+	else
 	{
 		c_str = itoa(va_arg(unnamed, int));
 		count = con_spec_list[idx].spec_func(c_str);

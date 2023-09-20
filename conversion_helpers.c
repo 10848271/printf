@@ -14,24 +14,30 @@
 char *base_converter(int number, int base)
 {
 	int idx, size;
-	char *base_number; /* base number in string form */
-	int diff = number; /* holds the quotient number after division */
-	/* int remainder; */ /* holds the remainder after division */
+	char *base_number, *rev_number; /* base number in string form */
+	int quo = number; /* holds the quotient number after division */
+	int rem; /* holds the remainder after division */
 
 	size = max_b_size(number);
 	base_number = (char *)malloc(size + 1);
 
-	for (idx = 1; idx <= size; idx++)
+	idx = 0;
+	while (quo)
 	{
-		if (_pow(2, size - idx) <= diff)
-		{
-			base_number[idx - 1] = '1'; /* ascii for 1*/
-			diff -= _pow(base, size - idx);
-		}
-		else
-			base_number[idx - 1] = '0'; /* ascii for 0*/
+		rem = quo % base;
+		quo = quo / base;
+		base_number[idx] = 48 + rem;
+		idx++;
 	}
-	base_number[size + 1] = '\0';
+
+	rev_number = (char *)malloc(size + 1);
+	for (idx = 0; idx < size; idx++)
+	{
+		rev_number[idx] = base_number[size - idx - 1];
+	}
+	rev_number[size + 1] = '\0';
+	base_number = rev_number;
+
 	return (base_number);
 }
 
@@ -51,6 +57,12 @@ int max_b_size(int number)
 	return (i);
 }
 
+/**
+ * itoa - converts a number to string
+ * @number: number to convert
+ *
+ * Return: string of number
+ */
 char *itoa(int number)
 {
 	char *a_number;
@@ -59,7 +71,6 @@ char *itoa(int number)
 	digits = digit_count(number);
 	div = _pow(10, digits - 1);
 	a_number = (char *)malloc(digits + 1);
-	
 	while (i < digits)
 	{
 		a_number[i] = ((number / div) + 48);
@@ -72,6 +83,12 @@ char *itoa(int number)
 	return (a_number);
 }
 
+/**
+ * digit_count - counts digits in a number
+ * @number: number to count
+ *
+ * Return: digits of number
+ */
 int digit_count(int number)
 {
 	int count = 0;
@@ -81,11 +98,18 @@ int digit_count(int number)
 	while (number)
 	{
 		count++;
-		number /= 10; 
+		number /= 10;
 	}
 	return (count);
 }
 
+/**
+ * _pow - finds the exponent of a number
+ * @base: base number
+ * @expo: power number
+ *
+ * Return: base to the power of expo
+ */
 int _pow(int base, int expo)
 {
 	int i, pow = 1;

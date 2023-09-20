@@ -39,19 +39,19 @@ int s_spec_func(char *value)
 */
 int d_i_spec_func(char *value)
 {
-        int idx;
+	int idx;
 
-        for (idx = 0; value[idx]; idx++)
-                continue;
+	for (idx = 0; value[idx]; idx++)
+		continue;
 
-        return (write(1, value, idx));
+	return (write(1, value, idx));
 }
 
- /**
- * b_spec_func - converts number to binary and prints to stdout, handling %b format directive
- * @value: string to convert
+/**
+ * b_spec_func - handles %b format specifier for binary conversion
+ * @value: number to convert
  *
- * Return: number of characters printed
+ * Return: binary representation of value
  */
 int b_spec_func(char *value)
 {
@@ -59,9 +59,7 @@ int b_spec_func(char *value)
 	int idx, number = atoi(value);
 
 	binary = base_converter(number, 2);
-	
 	for (idx = 0; binary[idx]; idx++)
 		continue;
-
 	return (write(1, binary, idx));
 }
