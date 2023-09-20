@@ -32,12 +32,12 @@ int s_spec_func(char *value)
 }
 
 /**
-* d_i_spec_func - function that handles conversion
-* @d: value to convert
-* @i: another value
-* return: handler
+* d_i_spec_func - function that handles conversion %d and %s
+* @value: value to print
+*
+* Return: handler
 */
-int d_i_spec_func (char *)
+int d_i_spec_func(char *value)
 {
         int idx;
 
