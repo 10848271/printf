@@ -21,6 +21,9 @@ int get_spec_func(char spec_char, va_list unnamed)
 		{'d', d_i_spec_func},
 		{'i', d_i_spec_func},
 		{'b', b_spec_func},
+		{'o', o_spec_func},
+		{'x', x_spec_func},
+		{'X', X_spec_func},
 		{'\0', NULL},
 	};
 

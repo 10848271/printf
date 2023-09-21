@@ -18,7 +18,7 @@ char *base_converter(int number, int base)
 	int quo = number; /* holds the quotient number after division */
 	int rem; /* holds the remainder after division */
 
-	size = max_b_size(number);
+	size = max_b_size(number, base);
 	base_number = (char *)malloc(size + 1);
 
 	idx = 0;
@@ -26,7 +26,10 @@ char *base_converter(int number, int base)
 	{
 		rem = quo % base;
 		quo = quo / base;
-		base_number[idx] = 48 + rem;
+		if (rem < 10)
+			base_number[idx] = 48 + rem;
+		else
+			base_number[idx] = 97 + (rem - 10);
 		idx++;
 	}
 
@@ -47,11 +50,11 @@ char *base_converter(int number, int base)
  *
  * Return: size of number
  */
-int max_b_size(int number)
+int max_b_size(int number, int base)
 {
 	int i;
 
-	for (i = 0; _pow(2, i) <= number; i++)
+	for (i = 0; _pow(base, i) <= number; i++)
 		continue;
 
 	return (i);
@@ -71,6 +74,7 @@ char *itoa(int number)
 	digits = digit_count(number);
 	div = _pow(10, digits - 1);
 	a_number = (char *)malloc(digits + 1);
+
 	while (i < digits)
 	{
 		a_number[i] = ((number / div) + 48);

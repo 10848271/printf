@@ -9,7 +9,11 @@
  */
 int main(void)
 {
-	int len, len2;
+	int len;
+	int len2;
+	/*unsigned int ui;
+
+	ui = (unsigned int)INT_MAX + 1024;*/
 
 	len = _printf("Let's try to printf a simple sentence.\n");
 	len2 = printf("Let's try to printf a simple sentence.\n");
@@ -33,7 +37,10 @@ int main(void)
 	len2 = printf("Percent:[%%]\n");
 	printf("Length:[%d, %i]\n", len, len2);
 
-	_printf("Unsigned binary:[%b]\n", 98);
-
+	_printf("Unsigned binary:[%b]\n", 800);
+	_printf("Unsigned octal:[%o]\n", 15);
+	printf("Unsigned octal:[%o]\n", 15);
+	_printf("Unsigned hexadecimal:[%x, %X]\n", 23453, 23453);
+	printf("Unsigned hexadecimal:[%x, %X]\n", (unsigned int)23453, (unsigned int)23453);
 	return (0);
 }

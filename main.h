@@ -27,6 +27,9 @@ int c_spec_func(char *);
 int s_spec_func(char *);
 int b_spec_func(char *);
 int d_i_spec_func(char *);
+int o_spec_func(char *);
+int x_spec_func(char *);
+int X_spec_func(char *);
 /* end of conversion specifiers function prototypes */
 
 
@@ -36,7 +39,7 @@ char *base_converter(int, int);
 char *itoa(int);
 int digit_count(int);
 int _pow(int, int);
-int max_b_size(int);
+int max_b_size(int, int);
 /* end of conversion specifiers helper functions prototype */
 
 
